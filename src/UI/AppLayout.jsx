@@ -1,10 +1,12 @@
 import React from "react";
+import Navbar from "./Navbar";
+import Sidebar from "./Sidebar";
 
 function AppLayout() {
   return (
-    <div>
-      <div>helooo world it is app Layout</div>
-    </div>
+    <>
+      <Sidebar />
+    </>
   );
 }
 

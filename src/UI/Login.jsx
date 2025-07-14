@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { RiWechatFill } from "react-icons/ri";
 import LoginImage from "../assets/log-4.jpg";
 
 function Login() {
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+  const handlesubmit = (e) => {
+    e.preventDefault();
+    console.log(email);
+    console.log(password);
+  };
+
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100 p-4">
       <div className="flex flex-col md:flex-row w-full max-w-5xl shadow-lg rounded-xl overflow-hidden">
@@ -27,15 +35,19 @@ function Login() {
           <h1 className="text-3xl md:text-4xl font-semibold mb-5 text-transparent text-center bg-clip-text bg-gradient-to-r from-green-500 to-purple-500">
             Login
           </h1>
-          <form className="w-full max-w-md">
+          <form className="w-full max-w-md" onSubmit={handlesubmit}>
             <div className="flex flex-col gap-2">
               <label htmlFor="Email" className="text-xl">
                 Email
               </label>
               <input
-                type="email"
+                type="text"
+                autoComplete="username"
                 placeholder="xyz@gmail.com"
-                className="w-full placeholder:text-gray-500 border rounded-xl border-gray-400 p-2 outline-none"
+                className="w-full 
+                border rounded-xl border-gray-400 p-2 outline-none"
+                value={email}
+                onChange={(e) => setemail(e.target.value)}
               />
             </div>
 
@@ -45,8 +57,11 @@ function Login() {
               </label>
               <input
                 type="password"
+                autoComplete="current-password"
                 placeholder="Password"
                 className="w-full placeholder:text-gray-500 border rounded-xl p-2 outline-none border-gray-400"
+                value={password}
+                onChange={(e) => setpassword(e.target.value)}
               />
             </div>
 
