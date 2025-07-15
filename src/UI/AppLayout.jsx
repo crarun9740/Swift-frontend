@@ -2,10 +2,21 @@ import React from "react";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 
+import RightBar from "./RightBar";
+import { Outlet } from "react-router";
+
 function AppLayout() {
   return (
     <>
-      <Sidebar />
+      <div className="flex">
+        <Sidebar />
+        <div>
+          <RightBar />
+        </div>
+      </div>
+      {/* <Sidebar />
+      <Outlet />
+      <RightBar /> */}
     </>
   );
 }

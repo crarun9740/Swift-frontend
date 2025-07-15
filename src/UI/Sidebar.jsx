@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import Navbar from "./Navbar";
 import { RiChatNewFill } from "react-icons/ri";
 import { FiSearch } from "react-icons/fi";
+import Calls from "./Calls";
+import Profile from "./Profile";
+import Status from "./Status";
 
 function Sidebar() {
   const [selecttab, setselecttab] = useState("Chats");
@@ -30,7 +33,7 @@ function Sidebar() {
     },
   ];
   return (
-    <div className="w-1/4 p-1 relative h-screen flex flex-col border-r border-gray-300">
+    <div className="w-1/4 p-1 relative h-screen flex flex-col border-r-2 border-gray-300">
       <div className="flex justify-between items-center px-5 border-b border-gray-300">
         <h1 className="text-2xl font-semibold">{selecttab}</h1>
         <h1 className="border p-2 text-2xl bg-blue-400 font-semibold text-white cursor-pointer rounded-full">
@@ -54,18 +57,21 @@ function Sidebar() {
           {contacts.map((items, index) => (
             <div
               key={index}
-              className="p-5 text-lg flex gap-2 hover:bg-gray-300 cursor-pointer"
+              className="p-5 text-lg flex gap-2 hover:bg-gray-200 cursor-pointer"
             >
               <img
                 src={items.img}
                 alt="A"
-                className="border rounded-full w-15 h-15 "
+                className="border rounded-full w-15 h-15 border-blue-500"
               />
               <h1> {items.name}</h1>
             </div>
           ))}
         </div>
       )}
+      {selecttab == "Calls" && <Calls />}
+      {selecttab == "Status" && <Status />}
+      {selecttab == "Profile" && <Profile />}
       <Navbar selecttab={selecttab} setselecttab={setselecttab} />
     </div>
   );
