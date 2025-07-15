@@ -1,10 +1,8 @@
-import React from "react";
 import { BsChatSquare } from "react-icons/bs";
 import { IoCallOutline } from "react-icons/io5";
 import { SiSnapcraft } from "react-icons/si";
 import { FaRegUserCircle } from "react-icons/fa";
-import { Outlet, useNavigate } from "react-router";
-import Calls from "./Calls";
+import { useNavigate } from "react-router-dom";
 
 const navbar = [
   { icons: <BsChatSquare />, name: "Chats", value: "Chats" },
@@ -15,9 +13,8 @@ const navbar = [
 
 function Navbar({ selecttab, setselecttab }) {
   const navigate = useNavigate();
-
   return (
-    <nav className="absolute bottom-0 left-0 right-0 shadow   flex justify-around items-center gap-5 py-3 border-t-2 overflow-hidden border-gray-300">
+    <nav className="absolute bottom-0 left-0 right-0 shadow  flex justify-around items-center gap-5 py-3 border-t-2 overflow-hidden border-gray-300">
       {navbar.map((items, index) => (
         <div
           key={index}
@@ -29,8 +26,11 @@ function Navbar({ selecttab, setselecttab }) {
             }`}
             onClick={() => {
               setselecttab(items.value);
-
-              if (items.value === "Calls") navigate("/calls");
+              if (items.value.toLowerCase() == "chats") {
+                navigate("/");
+                return;
+              }
+              navigate(`/${items.value.toLowerCase()}`);
             }}
           >
             <h1>{items.icons}</h1>

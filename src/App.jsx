@@ -9,6 +9,8 @@ import Calls from "./UI/Calls";
 import Status from "./UI/Status";
 import Profile from "./UI/Profile";
 import RightBar from "./UI/RightBar";
+import Chats from "./UI/Chats";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -16,8 +18,8 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-        path: "navbar",
-        element: <Navbar />,
+        index: true,
+        element: <Chats />,
       },
       {
         path: "calls",
@@ -32,7 +34,7 @@ const router = createBrowserRouter([
         element: <Profile />,
       },
       {
-        path: "rightbar",
+        path: "chats/:id",
         element: <RightBar />,
       },
     ],

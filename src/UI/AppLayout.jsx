@@ -14,9 +14,6 @@ function AppLayout() {
           <RightBar />
         </div>
       </div>
-      {/* <Sidebar />
-      <Outlet />
-      <RightBar /> */}
     </>
   );
 }
